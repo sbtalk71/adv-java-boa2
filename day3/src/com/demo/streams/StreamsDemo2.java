@@ -26,10 +26,16 @@ public class StreamsDemo2 {
 		System.out.println("Sum = "+sum);
 		
 		//find the largest even number and odd number
-		
+		System.out.println("Max Value = "+intList.stream().max((x,y)->x.compareTo(y)).get());
 		
 		//first and last element
 		System.out.println(intList.stream().findFirst().get());
+		
+		System.out.println(intList.stream().map(x->x).reduce(10,(first, second)->first+second));
+		
+		System.out.println(intList.stream().mapToInt(x->x.intValue()).reduce((first, second)->second).getAsInt());
+		
+		
 		
 		
 		
