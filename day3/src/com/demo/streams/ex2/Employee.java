@@ -53,7 +53,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "{"+empId+" "+name+"}";
+		return "{"+name+" "+location+"}";
 	}
 
 	@Override

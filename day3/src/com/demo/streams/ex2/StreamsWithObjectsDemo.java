@@ -21,6 +21,17 @@ public class StreamsWithObjectsDemo {
 				
 				);
 
+		//List all the employees from Hyderabad
+		//List all the employees where salary is less than 50000
+		//add 10000 bonus to all the employees who has salary less than 40000
+		//calculate the sum of salary of all the employees
+		//sort the employees based on their name
+		//find the employee with max salary and change its location to Gurugram
+		
+		Employee emp=empList.stream().max((e1,e2)->Double.compare(e1.getSalary(),e2.getSalary())).get();
+		emp.setLocation("Gurugram");
+		empList.stream().forEach(System.out::println);
+		
 	}
 
 }
