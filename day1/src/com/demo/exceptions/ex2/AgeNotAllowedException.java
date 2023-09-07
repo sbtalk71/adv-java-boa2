@@ -2,6 +2,11 @@ package com.demo.exceptions.ex2;
 
 public class AgeNotAllowedException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public AgeNotAllowedException() {
 
 	}
