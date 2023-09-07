@@ -3,14 +3,33 @@ package com.demo.threads.pc;
 public class SharedData {
 	private int data = 0;
 
-	public void put(int data) {
+	volatile boolean valueSet = false;
+
+	public synchronized void put(int data) {
+		if (valueSet) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		this.data = data;
-		System.out.println("PUT :"+data);
+		this.valueSet = true;
+		System.out.println("PUT :" + data);
+		notifyAll();
 	}
-	
-	public void get() {
-		System.out.println("GOT : "+data);
+
+	public synchronized void get() {
+		if (!valueSet) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("GOT : " + data);
+		this.valueSet = false;
+		notifyAll();
 	}
-	
-	
+
 }

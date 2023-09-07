@@ -12,7 +12,7 @@ public class Consumer implements Runnable {
 		try {
 			while (true) {
 				sharedData.get();
-				Thread.sleep(200);
+				Thread.sleep(1000);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
