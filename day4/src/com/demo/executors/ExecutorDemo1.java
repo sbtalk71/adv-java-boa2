@@ -8,10 +8,12 @@ import com.demo.threads.basic.MyWorker;
 public class ExecutorDemo1 {
 
 	public static void main(String[] args) {
-		ExecutorService ex= Executors.newFixedThreadPool(4);
-		ex.execute(new MyWorker());
-		ex.execute(new MyWorker());
-		ex.execute(new MyWorker());
+		ExecutorService ex= Executors.newCachedThreadPool();
+		
+		System.out.println(ex.getClass().getName());
+		//ex.execute(new MyWorker());
+		//ex.execute(new MyWorker());
+		//ex.execute(new MyWorker());
 		ex.shutdown();
 
 	}
